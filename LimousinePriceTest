@@ -1,0 +1,77 @@
+package usj.renting;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class LimousinePriceTest {
+
+	@Test
+	public void testGetChargeLimitePositivo() {
+		double resultado=0;
+		LimousinePrice coupe = new LimousinePrice ();
+		resultado=coupe.getCharge(1);
+		assertEquals(3.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeIntermedios() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getCharge(7);
+		assertEquals(21.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeNegativos() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getCharge(-1);
+		assertEquals(0.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeCero() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getCharge(0);
+		assertEquals(0.0,resultado,0.0001);
+	}
+
+	@Test
+	public void testGetLoyaltyLimitePositivo() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getLoyaltyPoints(1);
+		assertEquals(1.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetLoyaltyLimiteCondicionPorArriba() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getLoyaltyPoints(2);
+		assertEquals(2.0,resultado,0.0001);
+	}
+
+	@Test
+	public void testGetLoyaltyIntemedio() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getLoyaltyPoints(7);
+		assertEquals(2.0,resultado,0.0001);
+	}@Test
+	public void testGetLoyaltyNegativo() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getLoyaltyPoints(-1);
+		assertEquals(0.0,resultado,0.0001);
+	}@Test
+	public void testGetLoyaltyCero() {
+		double resultado=0;
+		LimousinePrice limousine = new LimousinePrice ();
+		resultado=limousine.getLoyaltyPoints(0);
+		assertEquals(0.0,resultado,0.0001);
+	}
+
+}
