@@ -1,0 +1,94 @@
+package usj.renting;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class SedanPriceTest {
+
+	@Test
+	public void testGetChargeLimitePositivo() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(1);
+		assertEquals(1.5,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeLimiteCondicionPorAbajo() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(3);
+		assertEquals(1.5,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeLimiteCondicionPorArriba() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(4);
+		assertEquals(3.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeIntermedios() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(2);
+		assertEquals(1.5,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeIntermedios2() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(6);
+		assertEquals(6.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeNegativos() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(-1);
+		System.out.println(resultado);
+		assertEquals(0.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeCero() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getCharge(0);
+		assertEquals(0.0,resultado,0.0001);
+	}
+
+	@Test
+	public void testGetLoyaltyLimitePositivo() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getLoyaltyPoints(1);
+		assertEquals(1.0,resultado,0.0001);
+	}
+
+	@Test
+	public void testGetLoyaltyIntemedio() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getLoyaltyPoints(7);
+		assertEquals(1.0,resultado,0.0001);
+	}@Test
+	public void testGetLoyaltyNegativo() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getLoyaltyPoints(-1);
+		assertEquals(0.0,resultado,0.0001);
+	}@Test
+	public void testGetLoyaltyCero() {
+		double resultado=0;
+		SedanPrice sedan = new SedanPrice ();
+		resultado=sedan.getLoyaltyPoints(0);
+		assertEquals(0.0,resultado,0.0001);
+	}
+
+}
