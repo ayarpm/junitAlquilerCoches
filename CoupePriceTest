@@ -1,0 +1,88 @@
+package usj.renting;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class CoupePriceTest {
+
+	@Test
+	public void testGetChargeLimitePositivo() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getCharge(1);
+		assertEquals(2.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeLimiteCondicionPorAbajo() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getCharge(2);
+		assertEquals(2.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeLimiteCondicionPorArriba() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getCharge(3);
+		assertEquals(3.5,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeIntermedios() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getCharge(6);
+		assertEquals(8.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeNegativos() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getCharge(-1);
+		assertEquals(0.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetChargeCero() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getCharge(0);
+		assertEquals(0.0,resultado,0.0001);
+	}
+
+	@Test
+	public void testGetLoyaltyLimitePositivo() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getLoyaltyPoints(1);
+		assertEquals(1.0,resultado,0.0001);
+	}
+
+	@Test
+	public void testGetLoyaltyIntemedio() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getLoyaltyPoints(7);
+		assertEquals(1.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetLoyaltyNegativo() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getLoyaltyPoints(-1);
+		assertEquals(0.0,resultado,0.0001);
+	}
+	
+	@Test
+	public void testGetLoyaltyCero() {
+		double resultado=0;
+		CoupePrice coupe = new CoupePrice ();
+		resultado=coupe.getLoyaltyPoints(0);
+		assertEquals(0.0,resultado,0.0001);
+	}
+}
